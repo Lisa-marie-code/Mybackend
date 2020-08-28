@@ -54,7 +54,7 @@ def create_blog():
             "image": request.json["image"],
             "title": request.json["title"],
             "categories": request.json["categories"],
-            "tags": response["tags"]
+            "tags": request.json["tags"]
             "date": request.json["date"],
             "author": request.json["author"], 
         }
@@ -68,7 +68,7 @@ def update_one(id):
     if response:
         return jsonify(
             {
-            "_id": str(response["_id"]),
+           
             "post": response["post"],
             "image": response["image"],
             "title": response["title"],
@@ -84,7 +84,7 @@ def update_one(id):
 def delete_one(id):
     response = collection.find_one_and_delete({"_id": ObjectId(id)})
     if response:
-        return jsonify(
+        return 
             {
             "_id": str(response["_id"]),
             "post": response["post"],
@@ -95,8 +95,8 @@ def delete_one(id):
             "date": response["date"],
             "author": response["author"]
             }
-        )
+        
 
 
 if __name__ == "__main__":
-    app.run(port=6077, debug=True)
+    app.run(port=6077)
