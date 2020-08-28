@@ -54,9 +54,9 @@ def create_blog():
             "image": request.json["image"],
             "title": request.json["title"],
             "categories": request.json["categories"],
-            "tags": request.json["tags"]
+            "tags": request.json["tags"],
             "date": request.json["date"],
-            "author": request.json["author"], 
+            "author": request.json["author"]
         }
     )
     return request.json 
@@ -73,7 +73,7 @@ def update_one(id):
             "image": response["image"],
             "title": response["title"],
             "categories": response["categories"],
-            "tags": response["tags"]
+            "tags": response["tags"],
             "date": response["date"],
             "author": response["author"]
             }
@@ -84,14 +84,13 @@ def update_one(id):
 def delete_one(id):
     response = collection.find_one_and_delete({"_id": ObjectId(id)})
     if response:
-        return 
-            {
+        return  {
             "_id": str(response["_id"]),
             "post": response["post"],
             "image": response["image"],
             "title": response["title"],
             "categories": response["categories"],
-            "tags": response["tags"]
+            "tags": response["tags"],
             "date": response["date"],
             "author": response["author"]
             }
